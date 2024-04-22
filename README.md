@@ -1,36 +1,21 @@
-# Multithreading-matrix-multiplication
-## Overview
+# MULTITHREADING
+## NAME: CHIRAG
+## GROUP: 3COE12
+## ROLL NO.: 102103335
 
-This Python script benchmarks the performance of matrix multiplication using multi-threading. It generates 100 random matrices of size 1000x1000 and multiplies each of them with a constant matrix of the same size. The performance is measured for different numbers of threads ranging from 1 to 8.
+### METHODOLOGY:
+1. **Matrix Multiplication Function:** multiply() function conducts matrix multiplication of matrices A and B using np.dot(). The answer is stored at a specific index of result array.
 
-## Prerequisites
+2. **Function for Multiplication using Threads:** Implement run_threads() to execute matrix multiplication using n (1-10) number of threads. Initialize a list threads to store thread objects. Iterate over the list of matrices, creating a new thread for each matrix multiplication operation using threading.Thread() constructor. Start each thread using the start() method. After creating all threads, wait for all threads to complete using the join() method. Return the time taken for the multiplication operations.
 
-- Python 3.x
-- NumPy
-- Matplotlib
-- Pandas
-- psutil
+3. **Matrices Generation:** Generating a constant matrix A of size 1000x1000 using numpy.random.rand(). Creating a list of 100 random matrices of the same size.
 
-The script will generate the following outputs:
-    - Table showing the time taken for matrix multiplication with different numbers of threads.
-    - Graph plotting the matrix multiplication time versus the number of threads.
-    - CPU usages (if available).
-    
-## Results Interpretation
+4. **Execution Procedure:** Invoke run_threads() for each number of threads in the range from 1 to 10, recording the time taken for each operation. The results are stored in the results_table list along with the corresponding number of threads.
 
-- **Time Taken (Sec):** Indicates the time taken for matrix multiplication in seconds. Lower values indicate better performance.
-- **Number of Threads:** The number of threads used for matrix multiplication. Higher values may improve performance up to a certain point, depending on the system's capabilities.
-- **CPU Usage:** Percentage of CPU being used.
+5. **Results Presentation:** Results are displayed in a tabular format using tabulate(). Number of threads are plotted against corresponding time taken using matplotlib.pyplot.plot().
 
-## Result DataFrame
+### OBSERVATIONS: 
+  The minimum time taken is for 6 threads.
+![image](https://github.com/Ramjas-Langdi/Multithreading-assn/assets/99790640/6f066916-d96e-40ef-8bd0-1537a94ca454)
 
-| Threads | Time Taken (Sec) | CPU Usage (%) |
-|---------|------------------|---------------|
-| 1       | 500              | 20            |
-| 2       | 275              | 35            |
-| 3       | 200              | 45            |
-| 4       | 150              | 55            |
-| 5       | 250              | 60            |
-| 6       | 300              | 65            |
-| 7       | 350              | 70            |
-| 8       | 400              | 75            |
+![Screenshot 2024-04-10 134538](https://github.com/Ramjas-Langdi/Multithreading-assn/assets/99790640/1415a891-6f88-4498-b079-c7e075ca54a7)
